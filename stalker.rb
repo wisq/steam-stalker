@@ -84,8 +84,11 @@ class Stalker
         playing[game] << friend
         total += 1
 
-        notify = true unless @last_seen[friend] == game
-        @last_seen[friend] = game
+        unless @last_seen[friend] == game
+          puts "#{friend} is now playing #{game}."
+          notify = true
+          @last_seen[friend] = game
+        end
       end
     end
 
@@ -98,6 +101,7 @@ class Stalker
     if notify
       games = playing.keys
       Pushover.notification(title: "#{total} playing #{comma_list(games)}", message: lines.join("\n"))
+      puts "Sent notification."
     end
   end
 end
