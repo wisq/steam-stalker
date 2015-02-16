@@ -80,15 +80,17 @@ class Stalker
     notify = false
 
     friends_list.each do |friend, game|
+      already_seen = (@last_seen[friend] == game)
+
       if @watched_games.include?(game)
         playing[game] << friend
         total += 1
+        notify = true unless already_seen
+      end
 
-        unless @last_seen[friend] == game
-          puts "#{friend} is now playing #{game}."
-          notify = true
-          @last_seen[friend] = game
-        end
+      unless already_seen
+        puts "#{friend} is now playing #{game}."
+        @last_seen[friend] = game
       end
     end
 
