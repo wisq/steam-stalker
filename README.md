@@ -20,3 +20,9 @@ I finally got tired of this omission, and created this tool.
   * You must be able to reach `http://steamcommunity.com/id/<steam_id>/friends/`, so your Steam profile can't be private.
 4. Run `stalker.rb`.  Put it in a cronjob or `runit` service or something.
 5. Go stalk your Steam friends!
+
+## Notes
+
+To avoid notifying you every time you run this, this tool writes to `last_seen.json` in the current directory.  (If it can't write, it won't send a notification.)
+
+If you get JSON encoding errors, make sure your `LANG` environment variable is set to a Unicode-capable locale (ideally UTF-8).  Some game names contain funny characters.
