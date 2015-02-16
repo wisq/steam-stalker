@@ -93,12 +93,12 @@ class Stalker
       [comma_list(friends), is_or_are(friends), "playing", game].join(" ") + "."
     end
 
+    save_last_seen
+
     if notify
       games = playing.keys
       Pushover.notification(title: "#{total} playing #{comma_list(games)}", message: lines.join("\n"))
     end
-
-    save_last_seen
   end
 end
 
