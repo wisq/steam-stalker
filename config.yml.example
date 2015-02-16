@@ -1,0 +1,6 @@
+steam_id: wisq
+watched_games:
+  - "Borderlands 2"
+  - "Garry's Mod"
+pushover_user: some_user_token
+pushover_token: some_app_token
