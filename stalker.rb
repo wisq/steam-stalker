@@ -108,4 +108,13 @@ class Stalker
   end
 end
 
-Stalker.new(ARGV.first || "config.yml").stalk
+delay = ARGV.first.to_i
+stalker = Stalker.new("config.yml")
+if delay > 0
+  loop do
+    stalker.stalk
+    sleep delay
+  end
+else
+  stalker.stalk
+end
