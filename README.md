@@ -17,7 +17,7 @@ I finally got tired of this omission, and created this tool.
   * Call it whatever you want, and maybe give it a Steam icon or something.
 3. Edit the `config.yml.example` file and save it as `config.yml`.
   * Put your Pushover user and app token in here.
-  * You must be able to reach `http://steamcommunity.com/id/<steam_id>/friends/`, so your Steam profile can't be private.
+  * You must be able to reach `https://steamcommunity.com/id/<steam_id>/friends/`, so your Steam profile can't be private.
 4. Run `stalker.rb`.  Put it in a cronjob or `runit` service or something.
 5. Go stalk your Steam friends!
 
