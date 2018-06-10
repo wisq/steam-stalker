@@ -35,7 +35,10 @@ class Stalker
 
   def get_friends_page
     response = Faraday.get(url = "https://steamcommunity.com/id/#{@steam_id}/friends/")
-    raise "Request to #{url.inspect} failed: #{response}" unless response.status == 200
+    if response.status != 200
+      File.write("failed.html", response.body) rescue nil
+      raise "Request to #{url.inspect} failed: #{response.status}"
+    end
     return response.body
   end
 
