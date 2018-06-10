@@ -120,6 +120,7 @@ stalker = Stalker.new("config.yml")
 if delay > 0
   loop do
     stalker.stalk
+    $stdout.flush
     sleep delay
   end
 else
