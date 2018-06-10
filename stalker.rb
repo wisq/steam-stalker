@@ -81,7 +81,6 @@ class Stalker
     playing = Hash.new { |h, k| h[k] = [] }
     total = 0
     notify = false
-    seen_any = false
 
     friends_list.each do |friend, game|
       already_seen = (@last_seen[friend] == game)
@@ -95,11 +94,8 @@ class Stalker
       unless already_seen
         puts "#{friend} is now playing #{game}."
         @last_seen[friend] = game
-        seen_any = true
       end
     end
-
-    puts "Nobody is playing anything fun. :(" unless seen_any
 
     lines = playing.map do |game, friends|
       [comma_list(friends), is_or_are(friends), "playing", game].join(" ") + "."
