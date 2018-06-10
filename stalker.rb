@@ -92,7 +92,12 @@ class Stalker
       end
 
       unless already_seen
-        puts "#{friend} is now playing #{game}."
+        if game
+          puts "#{friend} is now playing #{game}."
+        else
+          last = @last_seen[friend]
+          puts "#{friend} has stopped playing #{last}."
+        end
         @last_seen[friend] = game
       end
     end
